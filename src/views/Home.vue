@@ -1,11 +1,5 @@
 <template>
   <div class="container grid-xs py-2">
-      <img
-        class="img-responsive img-logo"
-        src="@/assets/nezuko.png"
-        alt="qualquer imagem"
-      />
-
       <form @submit.prevent="addTodo(todo)">
         <div class="input-group">
           <input
@@ -71,10 +65,6 @@ export default {
 </script>
 
 <style scoped>
-.img-logo {
-  max-width: 200px;
-  margin: 0 auto;
-}
 
 .todo-list {
   padding-top: 2rem;
