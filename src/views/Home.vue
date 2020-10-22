@@ -1,3 +1,4 @@
+/* eslint-disable vue/no-dupe-keys */
 <template>
   <div class="container grid-xs py-2">
     <form @submit.prevent="addTodo(todo)">
@@ -41,7 +42,6 @@ export default {
       todo: {
         checked: false,
       },
-      loading: false,
     };
   },
 
@@ -49,18 +49,16 @@ export default {
     todos() {
       return this.$store.state.todos;
     },
+
+    loading() {
+      return this.$store.state.loading;
+    },
   },
 
   methods: {
     async addTodo(todo) {
-      try {
-        this.loading = true;
-        await this.$store.dispatch("addTodo", todo);
-        this.todo = { checked: false };
-        
-      } finally {
-        this.loading = false;
-      }
+      await this.$store.dispatch("addTodo", todo);
+      this.todo = { checked: false }
     },
 
     toggleTodo(todo) {
