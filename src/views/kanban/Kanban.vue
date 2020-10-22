@@ -1,12 +1,12 @@
 <template>
   <div>
-      Kanban vai ser aqui
+      Kanban
   </div>
 </template>
 
 <script>
 export default {
-
+    
 }
 </script>
 
