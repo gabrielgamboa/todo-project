@@ -62,12 +62,7 @@ export default {
     },
 
     toggleTodo(todo) {
-      const index = this.todos.findIndex((item) => item.id === todo.id);
-
-      if (index >= -1) {
-        const checked = !this.todos[index].checked;
-        this.$set(this.todos, index, { ...this.todos[index], checked });
-      }
+      this.$store.dispatch("toogleTodo", todo);
     },
 
     removeTodo(todo) {
