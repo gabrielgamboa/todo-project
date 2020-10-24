@@ -19,7 +19,7 @@ const actions = {
         })
     },
 
-    toogleTodo({ commit }, todo) {
+    toggleTodo({ commit }, todo) {
         commit('toggleTodo', todo);
     },
 
@@ -27,6 +27,16 @@ const actions = {
         commit('removeTodo', todo);
     }
 
+}
+
+const getters = {
+    uncheckeds(state) {
+        return state.todos.filter(todo => todo.checked == false);
+    },
+
+    checkeds(state) {
+        return state.todos.filter(todo => todo.checked);
+    }
 }
 
 
@@ -55,7 +65,8 @@ const mutations = {
 const store = new Vuex.Store({
     state,
     actions,
-    mutations
+    mutations,
+    getters
 })
 
 export default store

@@ -1,7 +1,7 @@
 /* eslint-disable vue/no-dupe-keys */
 <template>
   <div class="container grid-xs py-2">
-    <form @submit.prevent="addTodo(todo)">
+    <form @submit.prevent="add(todo)">
       <div class="input-group">
         <input
           type="text"
@@ -29,6 +29,7 @@
 
 <script>
 import Todo from "@/components/Todo.vue";
+import { mapActions, mapState } from "vuex";
 
 export default {
   name: "App",
@@ -46,28 +47,17 @@ export default {
   },
 
   computed: {
-    todos() {
-      return this.$store.state.todos;
-    },
-
-    loading() {
-      return this.$store.state.loading;
-    },
+    ...mapState(["todos", "loading"]),
   },
 
   methods: {
-    async addTodo(todo) {
-      await this.$store.dispatch("addTodo", todo);
-      this.todo = { checked: false }
+    ...mapActions(["addTodo", "toggleTodo", "removeTodo"]),
+
+    async add(todo) {
+      await this.addTodo(todo);
+      this.todo = { checked: false };
     },
 
-    toggleTodo(todo) {
-      this.$store.dispatch("toogleTodo", todo);
-    },
-
-    removeTodo(todo) {
-      this.$store.dispatch("removeTodo", todo)
-    },
   },
 };
 </script>
