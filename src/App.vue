@@ -12,11 +12,11 @@
         </section>
 
         <section class="navbar-section">
-            <a href="" class="btn btn-link">Twitter</a>
-            <a href="" class="btn btn-link">Github</a>
+            <a href="https://www.linkedin.com/in/gabriel-b-gamboa/" class="btn btn-link">LinkedIn</a>
+            <a href="https://github.com/gabrielgamboa" class="btn btn-link">Github</a>
         </section>
       </header>
-      <router-view class="pt-2"/>
+      <router-view/>
     </div>
   </div>
 </template>

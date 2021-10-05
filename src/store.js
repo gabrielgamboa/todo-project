@@ -46,7 +46,7 @@ const actions = {
 
 const getters = {
     uncheckeds(state) {
-        return state.todos.filter(todo => todo.checked == false);
+        return state.todos.filter(todo => !todo.checked);
     },
 
     checkeds(state) {
